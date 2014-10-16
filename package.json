@@ -1,0 +1,19 @@
+{
+  "name": "package.json",
+  "version": "1.0.0",
+  "description": "My WebApp for Compressing to PNG",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.9.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "y"
+  },
+  "author": "",
+  "license": "ISC"
+}
