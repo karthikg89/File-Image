@@ -1,0 +1,4 @@
+*.txt
+*.png
+*.tex
+node_modules
