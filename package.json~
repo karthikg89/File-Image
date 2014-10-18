@@ -12,6 +12,13 @@
     "morgan": "~1.3.0",
     "serve-favicon": "~2.1.3",
     "debug": "~2.0.0",
-    "jade": "~1.6.0"
+    "jade": "~1.6.0",
+    "grunt": "*"
+  },
+  "devDependencies": {
+    "connect": "^3.3.0",
+    "grunt": "^0.4.5",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-jade-tasks": "0.0.0"
   }
 }
