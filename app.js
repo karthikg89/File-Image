@@ -36,9 +36,16 @@ app.post('/fileupload', function(req, res) {
         var name = (__dirname + '/files/' + filename);
         fstream = fs.createWriteStream(name);
         file.pipe(fstream);
-        var spawn = require('child_process').spawn,
-            javaProg  = spawn('java', ['Compressor', name, 
-                name.substring(0, name.lastIndexOf('.')) + '.png']);
+        var process = require('child_process');
+        var javaProg  = process.exec('java Compressor ' +  name + ' ' + 
+                name + '.png',
+                function (error, stdout, stderr) {
+                    console.log('stdout: ' + stdout);
+                    console.log('stderr: ' + stderr);
+                    if (error !== null) {
+                        console.log('exec error: ' + error);
+                    }
+                });
 
         fstream.on('close', function () {
             console.log("Upload finished.")
@@ -57,9 +64,17 @@ app.post('/decompress', function(req, res) {
         var name = (__dirname + '/files/' + filename);
         fstream = fs.createWriteStream(name);
         file.pipe(fstream);
-        var spawn = require('child_process').spawn,
-            javaProg  = spawn('java', ['Decompressor', name, 
-                name.substring(0, name.lastIndexOf('.')) + '.txt']);
+
+        var process = require('child_process');
+        var javaProg  = process.exec('java Decompressor ' +  name + ' ' + 
+                name.substring(0, name.lastIndexOf('.')),
+                function (error, stdout, stderr) {
+                    console.log('stdout: ' + stdout);
+                    console.log('stderr: ' + stderr);
+                    if (error !== null) {
+                        console.log('exec error: ' + error);
+                    }
+                });
 
         fstream.on('close', function () {
             console.log("Upload finished.")
